@@ -1,0 +1,24 @@
+<mat-card>
+<table class="table table-dark" *ngIf="det">
+    <td>
+    <label for="customerNo">Customer Number</label>
+    <input type="number" [(ngModel)]="det.customerNo"><br>
+    <label for="firstName">Customer Name</label>
+    <input type="text" [(ngModel)]="det.firstName"><br>
+    <label for="lastName">Last Name</label>
+    <input type="text" [(ngModel)]="det.lastName"><br>
+    <label for="state">Customer State</label>
+    <input type="text" [(ngModel)]="det.state"><br>
+    <label for="country">Customer Country</label>
+    <input type="text" [(ngModel)]="det.country"><br>
+    <label for="gender">Customer gender</label>
+    
+    <input type="radio" [(ngModel)]="det.gender" value="M">Male<br>
+
+    <input type="radio" [(ngModel)]="det.gender" value="F">Female<br>
+    
+<button (click)="save()" class="btn btn-primary">Save 🙂  </button>
+<button (click)="back()" class="btn btn-primary">Back 🔙   </button>
+</td>
+</table>
+</mat-card>

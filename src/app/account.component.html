@@ -1,0 +1,102 @@
+<mat-toolbar color="accent">
+    <span>Udupi bank</span> &nbsp; &nbsp;
+    <mat-icon>home</mat-icon>
+    <!-- <mat-icon>dashboard</mat-icon> -->
+    
+
+</mat-toolbar>
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar src="./assets/harry.jpg">
+        <mat-card-title>
+                Customer Account Data Entry
+            </mat-card-title>
+            <mat-icon>account_box</mat-icon>
+
+            <mat-card-subtitle>Adding new Account
+            </mat-card-subtitle>
+            
+    </mat-card-header>
+    
+    <mat-card-content>
+         
+        <form [formGroup]="accForm" (ngSubmit)="insert()">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter Customer No </mat-label>
+                            <mat-select formControlName="customerNo">
+<mat-option *ngFor="let i of customers" [value]="i.customerNo">
+    {{i.customerNo}}
+</mat-option>
+                            </mat-select>
+                            <!-- <input formControlName="customerNo" matInput> -->
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                           
+                            <mat-error>
+<span *ngIf="!accForm.get('customerNo').valid &&( accForm.get('customerNo').touched || accForm.get('customerNo').dirty)">Pls provide Customer Number</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                                <mat-label>Account id</mat-label>
+                                <input matInput placeholder="account id" formControlName="accid" />
+                                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                                <mat-error>
+                                    <span *ngIf="!accForm.get('accid').valid &&( accForm.get('accid').touched || accForm.get('accid').dirty)">Pls provide Customer Account Number</span>
+                                                                </mat-error>
+                              </mat-form-field>
+                            </td>
+                              <td>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Account Type</mat-label>
+                                        <input matInput  formControlName="acctype" />
+                                         
+                                    </mat-form-field>
+                                </td>
+                   
+                </tr>
+                
+                <tr>
+                        <td>
+                            
+                            <mat-form-field appearance="outline">
+                                    <mat-label>balance</mat-label>
+                                    <input matInput  formControlName="balance" />
+                                    
+                                
+                                 
+                            </mat-form-field>
+                            <mat-icon>💰 </mat-icon>
+                        </td>
+                    </tr>
+
+                    <tr>
+                            <td>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Date</mat-label>
+                                    <input matInput  formControlName="opdate" />
+                                    
+                                    
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    
+                        <tr>
+                            <td colspan="2">
+                                  
+                                            <!-- <button mat-fab [disabled]="!custForm.valid">Save </button> -->
+                                            
+                                <button mat-raised-button color="accent" [disabled]="!accForm.valid">Save</button>
+                            </td>
+                        </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    
+</mat-card>
+

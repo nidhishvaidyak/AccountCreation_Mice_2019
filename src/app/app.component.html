@@ -1,0 +1,45 @@
+<mat-toolbar color="primary">
+<h1>Udupi Bank 🏦  </h1> 
+  <mat-toolbar-row >
+    <button mat-icon-button>
+        <!-- <mat-icon (click)="sidenav.toggle()"> account_balance</mat-icon> -->
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+  
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="['/']">Home</a>
+      <a mat-button [routerLink]="['add']">New Customer Entry </a>
+      <a mat-button [routerLink]="['list']">View Customer Info</a>
+      <a mat-button [routerLink]="['acc']"> Account detail Entry </a>
+      <a mat-button [routerLink]="['alist']">View Account details </a>
+      <a mat-button [routerLink]="['contact']">Contact Us</a>
+      <a mat-button [routerLink]="['login']">Login</a>
+      <a mat-button [routerLink]="['logout']">Logout</a>
+
+
+    </div>
+  </mat-toolbar-row>
+
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav>
+    <mat-nav-list>
+      <a mat-list-item  [routerLink]="['/']">Home</a>
+      <a mat-list-item [routerLink]="['add']">New Customer Entry </a>
+      <a mat-list-item [routerLink]="['list']">View Customer Info</a>
+      <a mat-list-item [routerLink]="['acc']"> Customer Account Entry </a>
+      <a mat-list-item [routerLink]="['alist']"> View Account detail </a>
+      <a mat-list-item [routerLink]="['contact']">Contact Us</a>
+      <a mat-list-item [routerLink]="['login']">Login</a>
+
+      <a mat-list-item (click)="sidenav.toggle()" herf="" mat-list-item>Close</a>
+    </mat-nav-list>
+  </mat-sidenav>
+<mat-sidenav-content>
+  <div style="height: 88vh;">
+    <router-outlet></router-outlet>
+  </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

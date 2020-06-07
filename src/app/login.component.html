@@ -1,0 +1,42 @@
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar src="./assets/harry.jpg">
+        <mat-card-title>
+                Login
+            </mat-card-title>
+        
+            
+    </mat-card-header>
+    
+    <mat-card-content>
+         
+        <form [formGroup]="loginForm" (ngSubmit)="loginCheck()">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>User Name</mat-label>
+                            <input formControlName="uname" matInput>
+                            </mat-form-field>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Password </mat-label>
+                                        <input type="password" formControlName="pwd" matInput>
+                                        </mat-form-field>
+                                        </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+                                                  
+                                                            <button mat-fab >Login </button>
+                                                            
+                                                
+                                            </td>
+                                        </tr>
+                            </table>
+                            </form>
+                            </mat-card-content>
+                            </mat-card>

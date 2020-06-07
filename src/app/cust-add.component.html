@@ -1,0 +1,119 @@
+<mat-toolbar color="accent">
+    <span>Udupi bank</span> &nbsp; &nbsp;
+    <mat-icon>home</mat-icon>
+    <!-- <mat-icon>dashboard</mat-icon> -->
+    
+
+</mat-toolbar>
+<mat-card>
+    <mat-card-header>
+        <img mat-card-avatar src="./assets/harry.jpg">
+        <mat-card-title>
+                Customer Data Entry
+            </mat-card-title>
+            <mat-icon>account_box</mat-icon>
+
+            <mat-card-subtitle>Adding new Customers</mat-card-subtitle>
+            
+    </mat-card-header>
+    
+    <mat-card-content>
+         
+        <form [formGroup]="custForm" (ngSubmit)="insert()">
+            <table>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                            <mat-label>Enter Customer No </mat-label>
+                            <input formControlName="customerNo" matInput>
+                            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                           
+                            <mat-error>
+<span *ngIf="!custForm.get('customerNo').valid &&( custForm.get('customerNo').touched || custForm.get('customerNo').dirty)">Pls provide Customer Number</span>
+                            </mat-error>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field appearance="outline">
+                                <mat-label>First Name</mat-label>
+                                <input matInput placeholder="Enter First Name" formControlName="firstName" />
+                                <mat-error>
+                                        <span *ngIf="!custForm.get('firstName').valid && custForm.get('firstName').touched">
+                                           <span *ngIf="custForm.get('firstName').hasError('required')">
+                                                Pls provide First Name
+                                           </span> 
+                                        <span *ngIf="custForm.get('firstName').hasError('minlength')">
+                                            Min 3 chars...
+                                        </span>
+                                        </span>
+                                                                    </mat-error>
+                              </mat-form-field>
+                            </td>
+                              <td>
+                                    <mat-form-field appearance="outline">
+                                        <mat-label>Last Name</mat-label>
+                                        <input matInput  formControlName="lastName" />
+                                         
+                                    </mat-form-field>
+                                </td>
+                   
+                </tr>
+                
+                <tr>
+                        <td>
+                            <mat-form-field appearance="outline">
+                                    <mat-label>State</mat-label>
+                                <mat-select  formControlName="state" >
+                                   
+                                 
+
+<mat-option *ngFor="let i of states" [value]="i">{{i}}</mat-option>
+                                    </mat-select>
+                                 
+                            </mat-form-field>
+                        </td>
+                    </tr>
+                    <tr>
+                            <td>
+                                <mat-form-field appearance="outline">
+                                    <mat-label>Country</mat-label>
+                                    <input matInput  formControlName="country" />
+                                    <mat-error>
+                                        <span *ngIf="!custForm.get('country').valid &&( custForm.get('country').touched || custForm.get('country').dirty)">
+                                            <span *ngIf="custForm.get('country').hasError('sp')">
+                                                Country contains Space..................?????.
+                                            </span>
+                                        </span>
+                                                                    </mat-error>
+                                </mat-form-field>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                
+                                    <mat-label style="margin-left:2%">Gender</mat-label>
+                                    <mat-radio-group  formControlName="gender">
+                                        <mat-radio-button value="M">Male</mat-radio-button>
+                                        <mat-radio-button value="F">Female</mat-radio-button>
+</mat-radio-group>
+                                        
+                                     
+                               
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                  
+                                            <!-- <button mat-fab [disabled]="!custForm.valid">Save </button> -->
+                                            
+                                <button mat-raised-button color="accent" [disabled]="!custForm.valid">Save</button>
+                            </td>
+                        </tr>
+            </table>
+        </form>
+    </mat-card-content>
+    
+</mat-card>
+

@@ -1,0 +1,34 @@
+
+
+<table class="table table-primary">
+    
+    <tr>
+        <th>Customer Number</th>
+        <th>Account id</th>
+        <th>Account type</th>
+        <th>balance</th>
+        <th>date</th>
+        
+
+    </tr>
+    <tbody>
+    <tr *ngFor="let i of accounts | paginate: { itemsPerPage: 3, currentPage: p }">
+        <td>{{i.customerNo}}</td>
+        <td><a [routerLink]="['/alist',i.customerNo]">{{i.accid}}</a></td>
+        <td>{{i.acctype}}</td>
+        <td>{{i.balance}}</td>
+        <td>{{i.opdate}}</td>
+        <td>  <button mat-fab (click)="getDetails(i)">Edit</button></td>
+        
+
+        
+    </tr>
+    </tbody>
+    <tr>
+        <td colspan="7" style="text-align: center">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls> 
+        </td>
+    </tr>
+</table >
+
+<app-adetails [det]="selectedAcc"></app-adetails>

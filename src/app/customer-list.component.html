@@ -1,0 +1,35 @@
+
+
+<table class="table table-primary">
+    
+    <tr>
+        <th>Customer Number</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>State</th>
+        <th>Country</th>
+        <th>Gender</th>
+
+    </tr>
+    <tbody>
+    <tr *ngFor="let i of customers | paginate: { itemsPerPage: 3, currentPage: p }">
+        <td>{{i.customerNo}}</td>
+        <td><a [routerLink]="['/list',i.customerNo]">{{i.firstName}}</a></td>
+        <td>{{i.lastName}}</td>
+        <td>{{i.state}}</td>
+        <td>{{i.country}}</td>
+        <td>{{i.gender}}</td>
+        <td>  <button mat-fab (click)="getDetails(i)">Edit</button></td>
+        
+
+        
+    </tr>
+    </tbody>
+    <tr>
+        <td colspan="7" style="text-align: center">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls> 
+        </td>
+    </tr>
+</table >
+
+<app-details [det]="selectedCust"></app-details>
